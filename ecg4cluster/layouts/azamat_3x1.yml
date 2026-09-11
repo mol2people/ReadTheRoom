@@ -1,0 +1,9 @@
+azamat_3x1:
+  description: "II, V1 and V5 in three full-width rows"
+  layout:
+    rows: 3
+    cols: 1
+  leads: ["II", "V1", "V5"]
+  rhythm_leads: []
+  total_rows: 3
+

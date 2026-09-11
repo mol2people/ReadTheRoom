@@ -1,0 +1,20 @@
+paper_speed_mm_s: 25.0
+gain_mm_mV: 10.0
+resample_size: 3000
+target_samples: 5000
+seed: 42
+image_extensions: [".jpg", ".jpeg", ".png"]
+
+metadata_regex: '^DII_(?P<participant>[^_]+)_(?P<experiment>eI|eII)_(?P<scan_index>\d+)\.[^.]+$'
+experiment_order: ["eI", "eII"]
+
+profiles:
+  tamir:
+    filename_regex: '_tamir_'
+    layout_file: 'layouts/tamir_12x1.yml'
+    preferred_leads: ["V6", "III"]
+
+  azamat:
+    filename_regex: '_azamat_'
+    layout_file: 'layouts/azamat_3x1.yml'
+    preferred_leads: ["II", "V5"]
