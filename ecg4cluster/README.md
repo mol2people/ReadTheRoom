@@ -1,5 +1,7 @@
 # ecg4cluster
 
+_Last updated: 2026-09-14._
+
 A small ZIH GPU workflow around
 [Open-ECG-Digitizer](https://github.com/Ahus-AIM/Open-ECG-Digitizer) v1.9.3.
 
