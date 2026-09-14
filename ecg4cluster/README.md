@@ -113,17 +113,22 @@ tar -czf output_DII.tar.gz -C output output_DII
 
 ### Segmentation batches
 
-`--batch-size` overrides `batch_size` in [config.yml](config.yml), currently 2. Start with
-`--batch-size 1` as the baseline, then benchmark `--batch-size 2` on the same
-input directory, using separate output directories:
+`--batch-size` overrides `batch_size` in [config.yml](config.yml), currently 2.
+Use `--batch-size 1` as the quality baseline, then sweep upward on the same
+input directory with separate output directories, up to the GPU memory limit:
 
 ```bash
-python digitize.py --input ../data/12lead/DIII \
-  --output output/benchmark_DIII_b1 --device cuda:0 --batch-size 1
+nvidia-smi # confirm free device memory before the sweep
 
+for b in 1 2 4 8 16; do
 python digitize.py --input ../data/12lead/DIII \
-  --output output/benchmark_DIII_b2 --device cuda:0 --batch-size 2
+  --output output/benchmark_DIII_b$b --device cuda:0 --batch-size $b
+done
 ```
+
+Stop at the first CUDA out-of-memory failure; the last stable `b` is the
+maximum usable batch size. If the gap is large (for example 4 works but 8
+fails), probe one intermediate value once (for example 6).
 
 The wrapper batches segmentation inputs only when their resized dimensions
 match. It does not pad pages, so actual batches may be smaller than the requested
@@ -138,9 +143,11 @@ batch size under `runtime`, including command-line overrides.
 
 Compare total runtime, peak host/GPU memory, and output quality before choosing
 a batch size. Check detected rows, selected leads, coverage, calibration, and
-waveform values against the baseline. Larger batches need their own benchmark
+waveform values against the `b1` baseline. Larger batches need their own benchmark
 and may exceed GPU memory; size both the batch and host-memory allocation from
-measurements rather than assuming that more is faster.
+measurements rather than assuming that more is faster. Prefer the smallest `b`
+past which images per second flattens or the remaining GPU margin drops below
+about 2 GiB.
 
 ## Layouts
 
