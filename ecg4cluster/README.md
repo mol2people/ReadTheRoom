@@ -85,6 +85,20 @@ Alpha uses [A100 GPUs with 40 GiB of device memory](https://doc.zih.tu-dresden.d
 The requested `32G` is a starting estimate for host RAM, separate from GPU
 memory. Adjust it after measuring peak memory on representative scans.
 
+## Git push with a classic token (temporary cache)
+
+Generate a classic personal access token with `repo` scope and copy it once.
+On the cluster, keep it in memory only (8 h), never on disk or in the repo:
+
+```bash
+git config --global credential.helper 'cache --timeout=28800'
+git push origin main
+```
+
+At the prompt use your GitHub username as username and paste the token as
+password. The next pushes within 8 h reuse the cache. Clear it with
+`git credential-cache exit`. Do not use `credential.helper store` here.
+
 ## Run
 
 Test one page from each supplied layout before processing the full directory:
