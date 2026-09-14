@@ -12,6 +12,15 @@ sample of every page.
 
 ## Setup
 
+First time only — allocate the workspace and copy the archive from your machine:
+
+```bash
+ws_allocate --filesystem horse ecg 100
+ws_list
+scp ~/Documents/ReadTheRoom_PhysiologicalSynchrony/Archive.zip \
+  scpTUD:/data/horse/ws/buza314h-ecg/
+```
+
 On Capella, unpack the data and create the venv:
 
 ```bash
