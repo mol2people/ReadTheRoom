@@ -38,7 +38,7 @@ Work inside `tmux` (`tmux new -s ecg`; detach `Ctrl-b d`, reattach
 `tmux attach -t ecg`): if SSH drops, the allocation shell — and the run
 with it — dies otherwise.
 
-Allocate (job 4213240, node c29: one H100, 10 CPUs, 6 h), then open a shell
+Allocate (one H100, 10 CPUs, 6 h), then open a shell
 on the node with `srun` from inside the allocation:
 
 ```bash
