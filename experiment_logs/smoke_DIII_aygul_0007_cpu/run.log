@@ -1,0 +1,4 @@
+2026-09-14 21:46:28,881 INFO files=1 device=cpu batch_size=2 config=/data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster/config.yml
+2026-09-14 21:46:36,276 INFO segmentation pages=1 shape_groups=1 elapsed_s=6.482
+2026-09-14 21:46:44,416 INFO file=DIII_aygul_0007.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8615 duration_s=11.909 selected=II completeness=1.0000 postprocess_elapsed_s=8.1
+2026-09-14 21:46:44,440 INFO complete rows=5000 output=/data/horse/ws/buza314h-ecg/experiment_sep14/output/smoke_DIII_aygul_0007_cpu elapsed_s=14.645 images_per_s=0.0683

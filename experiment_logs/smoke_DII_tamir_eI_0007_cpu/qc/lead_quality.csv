@@ -1,0 +1,13 @@
+scan_file,profile,lead,completeness,longest_complete_fraction,selected,duration_s,layout,layout_cost,expected_rows,detected_rows,detected_lead_labels
+DII_tamir_eI_0007.jpg,tamir_adelya,I,0.3042,0.0506,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,II,0.748,0.0764,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,III,0.9972,0.9972,True,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,aVR,0.9976,0.9976,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,aVL,0.9924,0.3018,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,aVF,0.8,0.2504,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V1,0.8694,0.2726,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V2,0.7388,0.2462,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V3,0.3112,0.095,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V4,0.9348,0.1834,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V5,0.6936,0.2482,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10
+DII_tamir_eI_0007.jpg,tamir_adelya,V6,0.5156,0.094,False,11.971329325437546,tamir_12x1,0.1662258252298674,12,13,10

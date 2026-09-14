@@ -1,0 +1,163 @@
+2026-09-14 21:53:21,857 INFO files=87 device=cuda:0 batch_size=2 config=/data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster/config.yml
+2026-09-14 21:53:23,877 INFO segmentation pages=2 shape_groups=1 elapsed_s=1.105
+2026-09-14 21:53:27,470 INFO file=DII_azamat_eI_0001.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.0000 duration_s=6.324 selected=II completeness=1.0000 postprocess_elapsed_s=3.6
+2026-09-14 21:53:30,707 INFO file=DII_azamat_eI_0002.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0346 duration_s=11.243 selected=II completeness=1.0000 postprocess_elapsed_s=3.2
+2026-09-14 21:53:31,280 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.574
+2026-09-14 21:53:34,190 INFO file=DII_azamat_eI_0003.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.2140 duration_s=11.888 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:37,049 INFO file=DII_azamat_eI_0004.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1921 duration_s=11.887 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:37,601 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.551
+2026-09-14 21:53:40,507 INFO file=DII_azamat_eI_0005.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0004 duration_s=11.841 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:43,430 INFO file=DII_azamat_eI_0006.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.3408 duration_s=11.860 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:44,195 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.765
+2026-09-14 21:53:47,081 INFO file=DII_azamat_eI_0007.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0167 duration_s=11.898 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:50,000 INFO file=DII_azamat_eI_0008.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.3539 duration_s=11.879 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:50,534 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.534
+2026-09-14 21:53:53,461 INFO file=DII_azamat_eI_0009.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1911 duration_s=11.912 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:56,422 INFO file=DII_azamat_eI_0010.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0261 duration_s=11.832 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:53:57,003 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.581
+2026-09-14 21:53:59,860 INFO file=DII_azamat_eI_0011.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0431 duration_s=11.890 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:02,711 INFO file=DII_azamat_eI_0012.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0233 duration_s=11.850 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:03,287 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.576
+2026-09-14 21:54:06,128 INFO file=DII_azamat_eI_0013.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0141 duration_s=11.884 selected=II completeness=1.0000 postprocess_elapsed_s=2.8
+2026-09-14 21:54:09,008 INFO file=DII_azamat_eI_0014.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5191 duration_s=11.911 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:09,584 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.575
+2026-09-14 21:54:12,447 INFO file=DII_azamat_eI_0015.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0160 duration_s=11.888 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:15,447 INFO file=DII_azamat_eI_0016.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6927 duration_s=11.936 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:54:16,022 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.574
+2026-09-14 21:54:18,883 INFO file=DII_azamat_eI_0017.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5179 duration_s=11.914 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:21,765 INFO file=DII_azamat_eI_0018.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1836 duration_s=11.828 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:22,330 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.565
+2026-09-14 21:54:25,203 INFO file=DII_azamat_eI_0019.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5217 duration_s=11.917 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:28,054 INFO file=DII_azamat_eI_0020.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0224 duration_s=11.891 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:28,917 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.862
+2026-09-14 21:54:32,026 INFO file=DII_azamat_eI_0021.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1670 duration_s=11.862 selected=II completeness=1.0000 postprocess_elapsed_s=3.1
+2026-09-14 21:54:34,880 INFO file=DII_azamat_eI_0022.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.3342 duration_s=11.884 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:35,485 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.605
+2026-09-14 21:54:38,478 INFO file=DII_azamat_eI_0023.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0143 duration_s=11.871 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:54:41,463 INFO file=DII_azamat_eI_0024.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1886 duration_s=11.873 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:54:42,023 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.560
+2026-09-14 21:54:44,998 INFO file=DII_azamat_eI_0025.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5166 duration_s=11.904 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:54:47,900 INFO file=DII_azamat_eI_0026.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1876 duration_s=11.850 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:48,496 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.595
+2026-09-14 21:54:51,429 INFO file=DII_azamat_eI_0027.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.3478 duration_s=11.901 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:54:54,920 INFO file=DII_azamat_eI_0028.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.3487 duration_s=6.004 selected=II completeness=1.0000 postprocess_elapsed_s=3.5
+2026-09-14 21:54:55,771 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.850
+2026-09-14 21:55:01,734 WARNING file=DII_azamat_eII_0001.jpg expected_rows=3 detected_rows=4 lead labels may be shifted
+2026-09-14 21:55:01,836 INFO file=DII_azamat_eII_0001.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1345 duration_s=11.257 selected=V1 completeness=0.9302 postprocess_elapsed_s=6.1
+2026-09-14 21:55:04,833 INFO file=DII_azamat_eII_0002.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.3579 duration_s=11.902 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:55:05,634 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.801
+2026-09-14 21:55:08,506 INFO file=DII_azamat_eII_0003.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.0311 duration_s=11.788 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:11,412 INFO file=DII_azamat_eII_0004.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1904 duration_s=11.799 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:12,000 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.588
+2026-09-14 21:55:14,925 INFO file=DII_azamat_eII_0005.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1844 duration_s=11.850 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:17,944 INFO file=DII_azamat_eII_0006.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1942 duration_s=11.764 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:55:18,771 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.827
+2026-09-14 21:55:21,683 INFO file=DII_azamat_eII_0007.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1871 duration_s=11.823 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:24,652 INFO file=DII_azamat_eII_0008.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1747 duration_s=11.814 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:55:25,240 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.588
+2026-09-14 21:55:28,295 INFO file=DII_azamat_eII_0009.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1784 duration_s=11.873 selected=II completeness=1.0000 postprocess_elapsed_s=3.1
+2026-09-14 21:55:31,235 INFO file=DII_azamat_eII_0010.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1857 duration_s=11.782 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:31,769 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.534
+2026-09-14 21:55:34,707 INFO file=DII_azamat_eII_0011.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1809 duration_s=11.834 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:37,580 INFO file=DII_azamat_eII_0012.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1826 duration_s=11.786 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:38,151 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.571
+2026-09-14 21:55:41,081 INFO file=DII_azamat_eII_0013.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1864 duration_s=11.792 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:55:44,318 INFO file=DII_azamat_eII_0014.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.2074 duration_s=11.800 selected=II completeness=1.0000 postprocess_elapsed_s=3.2
+2026-09-14 21:55:45,179 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.861
+2026-09-14 21:55:48,144 INFO file=DII_azamat_eII_0015.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.1887 duration_s=11.823 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:55:51,380 INFO file=DII_azamat_eII_0016.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.0046 duration_s=3.995 selected=II completeness=1.0000 postprocess_elapsed_s=3.2
+2026-09-14 21:55:52,516 INFO segmentation pages=2 shape_groups=1 elapsed_s=1.136
+2026-09-14 21:56:06,038 WARNING file=DII_tamir_eI_0001.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:56:06,183 INFO file=DII_tamir_eI_0001.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.3240 duration_s=10.501 selected=V4 completeness=1.0000 postprocess_elapsed_s=13.7
+2026-09-14 21:56:37,198 WARNING file=DII_tamir_eI_0002.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:56:37,334 INFO file=DII_tamir_eI_0002.jpg profile=tamir_adelya layout=tamir_12x1 cost=4.0449 duration_s=11.895 selected=V4 completeness=0.9240 postprocess_elapsed_s=31.2
+2026-09-14 21:56:37,913 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.578
+2026-09-14 21:56:52,067 WARNING file=DII_tamir_eI_0003.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:56:52,218 INFO file=DII_tamir_eI_0003.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0800 duration_s=11.944 selected=III completeness=0.9984 postprocess_elapsed_s=14.3
+2026-09-14 21:57:06,521 WARNING file=DII_tamir_eI_0004.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:57:06,673 INFO file=DII_tamir_eI_0004.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0827 duration_s=11.941 selected=III completeness=0.9996 postprocess_elapsed_s=14.5
+2026-09-14 21:57:07,595 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.921
+2026-09-14 21:57:21,568 INFO file=DII_tamir_eI_0005.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0235 duration_s=11.950 selected=V6 completeness=0.9904 postprocess_elapsed_s=14.0
+2026-09-14 21:57:35,078 INFO file=DII_tamir_eI_0006.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0240 duration_s=11.936 selected=V6 completeness=0.9902 postprocess_elapsed_s=13.5
+2026-09-14 21:57:35,628 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.549
+2026-09-14 21:57:49,922 INFO file=DII_tamir_eI_0007.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0416 duration_s=11.971 selected=V6 completeness=0.9876 postprocess_elapsed_s=14.3
+2026-09-14 21:58:03,818 WARNING file=DII_tamir_eI_0008.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:58:03,960 INFO file=DII_tamir_eI_0008.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1578 duration_s=11.933 selected=III completeness=0.9992 postprocess_elapsed_s=14.0
+2026-09-14 21:58:04,497 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.537
+2026-09-14 21:58:18,657 WARNING file=DII_tamir_eI_0009.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:58:18,801 INFO file=DII_tamir_eI_0009.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1057 duration_s=11.939 selected=III completeness=0.9996 postprocess_elapsed_s=14.3
+2026-09-14 21:58:32,684 WARNING file=DII_tamir_eI_0010.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:58:32,826 INFO file=DII_tamir_eI_0010.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1085 duration_s=11.956 selected=III completeness=0.9980 postprocess_elapsed_s=14.0
+2026-09-14 21:58:33,400 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.574
+2026-09-14 21:58:49,423 INFO file=DII_tamir_eI_0011.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0236 duration_s=11.944 selected=V6 completeness=0.9930 postprocess_elapsed_s=16.0
+2026-09-14 21:59:03,364 WARNING file=DII_tamir_eI_0012.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:59:03,529 INFO file=DII_tamir_eI_0012.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1013 duration_s=11.954 selected=aVR completeness=0.9992 postprocess_elapsed_s=14.1
+2026-09-14 21:59:04,113 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.584
+2026-09-14 21:59:19,897 WARNING file=DII_tamir_eI_0013.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:59:20,042 INFO file=DII_tamir_eI_0013.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2039 duration_s=11.912 selected=III completeness=1.0000 postprocess_elapsed_s=15.9
+2026-09-14 21:59:34,745 INFO file=DII_tamir_eI_0014.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0255 duration_s=11.950 selected=V6 completeness=0.9918 postprocess_elapsed_s=14.7
+2026-09-14 21:59:35,305 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.560
+2026-09-14 21:59:50,161 WARNING file=DII_tamir_eI_0015.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:59:50,305 INFO file=DII_tamir_eI_0015.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2033 duration_s=11.940 selected=III completeness=0.9988 postprocess_elapsed_s=15.0
+2026-09-14 22:00:05,050 WARNING file=DII_tamir_eI_0016.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:00:05,204 INFO file=DII_tamir_eI_0016.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0902 duration_s=11.945 selected=III completeness=0.9992 postprocess_elapsed_s=14.9
+2026-09-14 22:00:05,761 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.558
+2026-09-14 22:00:20,413 INFO file=DII_tamir_eI_0017.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0416 duration_s=11.942 selected=aVR completeness=0.9992 postprocess_elapsed_s=14.7
+2026-09-14 22:00:34,751 WARNING file=DII_tamir_eI_0018.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:00:34,903 INFO file=DII_tamir_eI_0018.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0759 duration_s=11.941 selected=III completeness=1.0000 postprocess_elapsed_s=14.5
+2026-09-14 22:00:36,190 INFO segmentation pages=2 shape_groups=1 elapsed_s=1.286
+2026-09-14 22:00:50,373 INFO file=DII_tamir_eI_0019.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0209 duration_s=11.941 selected=III completeness=1.0000 postprocess_elapsed_s=14.2
+2026-09-14 22:01:04,441 WARNING file=DII_tamir_eI_0020.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:01:04,587 INFO file=DII_tamir_eI_0020.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1063 duration_s=11.927 selected=III completeness=1.0000 postprocess_elapsed_s=14.2
+2026-09-14 22:01:05,368 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.781
+2026-09-14 22:01:19,322 WARNING file=DII_tamir_eI_0021.jpg expected_rows=12 detected_rows=13 lead labels may be shifted
+2026-09-14 22:01:19,461 INFO file=DII_tamir_eI_0021.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0755 duration_s=11.928 selected=III completeness=1.0000 postprocess_elapsed_s=14.1
+2026-09-14 22:01:34,457 WARNING file=DII_tamir_eI_0022.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:01:34,608 INFO file=DII_tamir_eI_0022.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1179 duration_s=11.946 selected=aVR completeness=0.9996 postprocess_elapsed_s=15.1
+2026-09-14 22:01:35,458 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.851
+2026-09-14 22:01:49,169 INFO file=DII_tamir_eI_0023.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0253 duration_s=11.946 selected=aVR completeness=1.0000 postprocess_elapsed_s=13.7
+2026-09-14 22:02:03,816 WARNING file=DII_tamir_eI_0024.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:02:03,961 INFO file=DII_tamir_eI_0024.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0850 duration_s=11.931 selected=aVR completeness=0.9992 postprocess_elapsed_s=14.8
+2026-09-14 22:02:04,523 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.561
+2026-09-14 22:02:18,190 WARNING file=DII_tamir_eI_0025.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:02:18,333 INFO file=DII_tamir_eI_0025.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0845 duration_s=11.950 selected=III completeness=0.9976 postprocess_elapsed_s=13.8
+2026-09-14 22:02:32,490 INFO file=DII_tamir_eI_0026.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0511 duration_s=5.966 selected=V6 completeness=0.9912 postprocess_elapsed_s=14.2
+2026-09-14 22:02:33,052 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.561
+2026-09-14 22:02:42,418 WARNING file=DII_tamir_eI_0027.jpg expected_rows=12 detected_rows=9 lead labels may be shifted
+2026-09-14 22:02:42,563 INFO file=DII_tamir_eI_0027.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.4096 duration_s=4.719 selected=III completeness=1.0000 postprocess_elapsed_s=9.5
+2026-09-14 22:03:00,537 WARNING file=DII_tamir_eII_0001.jpg expected_rows=12 detected_rows=8 lead labels may be shifted
+2026-09-14 22:03:00,689 INFO file=DII_tamir_eII_0001.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.8229 duration_s=10.514 selected=V2 completeness=0.9822 postprocess_elapsed_s=18.1
+2026-09-14 22:03:01,268 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.579
+2026-09-14 22:03:17,515 WARNING file=DII_tamir_eII_0002.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 22:03:17,667 INFO file=DII_tamir_eII_0002.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1198 duration_s=11.937 selected=III completeness=0.9992 postprocess_elapsed_s=16.4
+2026-09-14 22:03:31,482 WARNING file=DII_tamir_eII_0003.jpg expected_rows=12 detected_rows=9 lead labels may be shifted
+2026-09-14 22:03:31,629 INFO file=DII_tamir_eII_0003.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2510 duration_s=11.956 selected=III completeness=0.9992 postprocess_elapsed_s=14.0
+2026-09-14 22:03:32,194 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.564
+2026-09-14 22:03:46,713 INFO file=DII_tamir_eII_0004.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0187 duration_s=11.942 selected=aVR completeness=0.9992 postprocess_elapsed_s=14.5
+2026-09-14 22:04:01,139 WARNING file=DII_tamir_eII_0005.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:04:01,296 INFO file=DII_tamir_eII_0005.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0849 duration_s=11.923 selected=III completeness=0.9988 postprocess_elapsed_s=14.6
+2026-09-14 22:04:02,142 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.846
+2026-09-14 22:04:17,000 INFO file=DII_tamir_eII_0006.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0161 duration_s=11.971 selected=aVR completeness=0.9988 postprocess_elapsed_s=14.9
+2026-09-14 22:04:31,062 WARNING file=DII_tamir_eII_0007.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:04:31,203 INFO file=DII_tamir_eII_0007.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1094 duration_s=11.962 selected=III completeness=0.9984 postprocess_elapsed_s=14.2
+2026-09-14 22:04:31,768 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.565
+2026-09-14 22:04:46,293 WARNING file=DII_tamir_eII_0008.jpg expected_rows=12 detected_rows=9 lead labels may be shifted
+2026-09-14 22:04:46,434 INFO file=DII_tamir_eII_0008.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1649 duration_s=11.961 selected=III completeness=0.9988 postprocess_elapsed_s=14.7
+2026-09-14 22:04:59,947 WARNING file=DII_tamir_eII_0009.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:05:00,104 INFO file=DII_tamir_eII_0009.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1160 duration_s=11.941 selected=III completeness=0.9996 postprocess_elapsed_s=13.7
+2026-09-14 22:05:00,980 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.875
+2026-09-14 22:05:15,704 INFO file=DII_tamir_eII_0010.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0224 duration_s=11.895 selected=V6 completeness=0.9902 postprocess_elapsed_s=14.7
+2026-09-14 22:05:31,230 WARNING file=DII_tamir_eII_0011.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 22:05:31,380 INFO file=DII_tamir_eII_0011.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0812 duration_s=11.917 selected=III completeness=0.9996 postprocess_elapsed_s=15.7
+2026-09-14 22:05:31,949 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.569
+2026-09-14 22:05:47,662 INFO file=DII_tamir_eII_0012.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0385 duration_s=11.942 selected=aVR completeness=0.9992 postprocess_elapsed_s=15.7
+2026-09-14 22:06:02,220 WARNING file=DII_tamir_eII_0013.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 22:06:02,369 INFO file=DII_tamir_eII_0013.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2856 duration_s=11.955 selected=III completeness=0.9988 postprocess_elapsed_s=14.7
+2026-09-14 22:06:03,250 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.880
+2026-09-14 22:06:17,473 INFO file=DII_tamir_eII_0014.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0276 duration_s=11.937 selected=aVR completeness=0.9996 postprocess_elapsed_s=14.2
+2026-09-14 22:06:32,624 WARNING file=DII_tamir_eII_0015.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 22:06:32,770 INFO file=DII_tamir_eII_0015.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1973 duration_s=11.938 selected=III completeness=0.9992 postprocess_elapsed_s=15.3
+2026-09-14 22:06:33,051 INFO segmentation pages=1 shape_groups=1 elapsed_s=0.280
+2026-09-14 22:06:41,731 INFO file=DII_tamir_eII_0016.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0294 duration_s=5.178 selected=III completeness=1.0000 postprocess_elapsed_s=8.7
+2026-09-14 22:06:42,936 INFO complete rows=435000 output=/data/horse/ws/buza314h-ecg/experiment_sep14/output/DII_b2_full_gpu elapsed_s=800.164 images_per_s=0.1087
+2026-09-14 22:06:42,936 INFO peak_gpu_allocated_mib=23647.3 peak_gpu_reserved_mib=34944.0

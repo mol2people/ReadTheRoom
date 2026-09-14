@@ -1,0 +1,36 @@
+paper_speed_mm_s: 25.0
+gain_mm_mV: 10.0
+resample_size: 3000
+batch_size: 2
+target_samples: 5000
+seed: 42
+image_extensions:
+- .jpg
+metadata_regex: ^(?:DII|DIII)_(?P<participant>[^_]+)_(?:(?P<experiment>eI|eII)_)?(?P<scan_index>\d+)\.[^.]+$
+experiment_order:
+- eI
+- eII
+profiles:
+  tamir_adelya:
+    filename_regex: _(?:tamir|adelya)_
+    layout_file: layouts/tamir_12x1.yml
+    preferred_leads:
+    - V6
+    - III
+  azamat_aygul:
+    filename_regex: _(?:azamat|aygul)_
+    layout_file: layouts/azamat_3x1.yml
+    preferred_leads:
+    - II
+    - V5
+runtime:
+  device: cuda:0
+  torch_version: 2.14.0+cu130
+  torch_cuda_version: '13.0'
+  gpu_name: NVIDIA H100
+  input_dir: /data/horse/ws/buza314h-ecg/data/12lead/DII
+  output_dir: /data/horse/ws/buza314h-ecg/experiment_sep14/output/DII_b2_full_gpu
+  open_ecg_revision: v1.9.3 (97a15087d4abcda843da8c58ee74b1d8f47e6f9a)
+  file: null
+  profile_override: null
+  batch_size: 2

@@ -1,0 +1,5 @@
+2026-09-14 21:44:00,826 INFO files=1 device=cuda:0 batch_size=2 config=/data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster/config.yml
+2026-09-14 21:44:02,290 INFO segmentation pages=1 shape_groups=1 elapsed_s=0.536
+2026-09-14 21:44:17,001 INFO file=DII_tamir_eI_0007.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0416 duration_s=11.971 selected=V6 completeness=0.9876 postprocess_elapsed_s=14.7
+2026-09-14 21:44:17,022 INFO complete rows=5000 output=/data/horse/ws/buza314h-ecg/experiment_sep14/output/smoke_DII_tamir_eI_0007_gpu elapsed_s=15.269 images_per_s=0.0655
+2026-09-14 21:44:17,023 INFO peak_gpu_allocated_mib=11793.3 peak_gpu_reserved_mib=21316.0

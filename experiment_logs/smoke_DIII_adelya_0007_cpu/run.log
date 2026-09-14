@@ -1,0 +1,5 @@
+2026-09-14 21:46:00,176 INFO files=1 device=cpu batch_size=2 config=/data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster/config.yml
+2026-09-14 21:46:07,382 INFO segmentation pages=1 shape_groups=1 elapsed_s=6.405
+2026-09-14 21:46:23,779 WARNING file=DIII_adelya_0007.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:46:23,960 INFO file=DIII_adelya_0007.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.5602 duration_s=11.946 selected=III completeness=1.0000 postprocess_elapsed_s=16.6
+2026-09-14 21:46:23,981 INFO complete rows=5000 output=/data/horse/ws/buza314h-ecg/experiment_sep14/output/smoke_DIII_adelya_0007_cpu elapsed_s=23.005 images_per_s=0.0435

@@ -10,23 +10,9 @@ most complete preferred lead, and combines the selected waveforms into one CSV.
 Pages remain separate: time restarts at zero and `is_scan_start` marks the first
 sample of every page.
 
-## Capella setup
+## Setup
 
-On the login node, allocate a workspace and confirm its actual path:
-
-```bash
-ws_allocate --filesystem horse ecg 100
-ws_list
-```
-
-Copy the archive from the local computer:
-
-```bash
-scp ~/Documents/ReadTheRoom_PhysiologicalSynchrony/Archive.zip \
-  scpTUD:/data/horse/ws/buza314h-ecg/
-```
-
-On Capella, unpack the data, load modules, create the venv, and request a GPU:
+On Capella, unpack the data, create the venv, and request a GPU:
 
 ```bash
 cd /data/horse/ws/buza314h-ecg
@@ -37,187 +23,85 @@ python3 -m venv --system-site-packages venv
 srun --partition=capella --nodes=1 --gres=gpu:1 --time=03:00:00 --pty bash
 ```
 
-On the GPU node, activate the venv and enter this project:
+On the GPU node:
 
 ```bash
 source /data/horse/ws/buza314h-ecg/venv/bin/activate
-cd /data/horse/ws/buza314h-ecg/ecg4cluster
-
-git --version
-git lfs version
+cd /data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster
 bash fetch_open_ecg.sh
 python -m pip install -r requirements.txt
+python -c 'import torch; print(torch.cuda.get_device_name(0))'
 ```
 
-Confirm that PyTorch sees the H100:
+On Alpha instead: `salloc --account=p_epoch_data --partition=alpha
+--cpus-per-task=6 --gres=gpu:1 --mem=64G --time=03:00:00`, then set
+`OMP/MKL/OPENBLAS_NUM_THREADS=$SLURM_CPUS_PER_TASK`. Alpha allows max 6 CPUs
+per GPU and uses A100 40 GiB cards.
 
-```bash
-python -c 'import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))'
-```
-
-These commands assume this repository is at `.../ecg4cluster` and the extracted
-images are under `.../data`. Adjust those two paths to match the archive.
-
-## Alpha allocation
-
-For a first benchmark on Alpha, request one GPU and six CPU cores, then start
-a shell on the allocated compute node:
-
-```bash
-salloc --account=p_epoch_data --partition=alpha --job-name=oc-dev --nodes=1 --ntasks=1 \
-  --cpus-per-task=6 --threads-per-core=1 --gres=gpu:1 --mem=32G \
-  --time=01:00:00
-srun --ntasks=1 --cpus-per-task=6 --cpu-bind=cores --pty bash
-```
-
-Activate the environment and run the workflow from that compute-node shell.
-Set the numerical libraries' thread limits before starting Python:
-
-```bash
-export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-export MKL_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-export OPENBLAS_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-```
-
-The `alpha` partition permits up to six CPUs and 123750 MB of host memory per
-requested GPU; see [ZIH's Slurm resource limits](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm_limits/).
-Alpha uses [A100 GPUs with 40 GiB of device memory](https://doc.zih.tu-dresden.de/jobs_and_resources/alpha_centauri/).
-The requested `32G` is a starting estimate for host RAM, separate from GPU
-memory. Adjust it after measuring peak memory on representative scans.
-
-## Git push with a classic token (temporary cache)
-
-Generate a classic personal access token with `repo` scope and copy it once.
-On the cluster, keep it in memory only (8 h), never on disk or in the repo:
-
-```bash
-git config --global credential.helper 'cache --timeout=28800'
-git push origin main
-```
-
-At the prompt use your GitHub username as username and paste the token as
-password. The next pushes within 8 h reuse the cache. Clear it with
-`git credential-cache exit`. Do not use `credential.helper store` here.
+To push, cache a classic token (`repo` scope) in memory only:
+`git config --global credential.helper 'cache --timeout=28800'`, then `git push`
+uses the GitHub username plus the token as password.
 
 ## Run
 
-Test one page from each supplied layout before processing the full directory:
+Smoke-test one page per layout (CPU and GPU), then the full directories.
+Batch size is fixed at 2:
 
 ```bash
-python digitize.py --input ../data/12lead/DII --output output/test_tamir \
-  --file DII_tamir_eI_0011.jpg --device cuda:0
+python digitize.py --input <ws>/data/12lead/DIII --output <ws>/experiment_sep14/output/smoke \
+  --file DIII_adelya_0007.jpg --device cuda:0 --batch-size 2
 
-python digitize.py --input ../data/12lead/DII --output output/test_azamat \
-  --file DII_azamat_eI_0011.jpg --device cuda:0
+python digitize.py --input <ws>/data/12lead/DII --output <ws>/experiment_sep14/output/DII_b2_full_gpu \
+  --device cuda:0 --batch-size 2
+
+python digitize.py --input <ws>/data/12lead/DIII --output <ws>/experiment_sep14/output/DIII_b2_full_gpu \
+  --device cuda:0 --batch-size 2
 ```
 
-Then run each complete directory:
+Use absolute `--input`/`--output` paths. A single `--file` run always uses an
+actual batch of 1, so CPU smoke with `--batch-size 2` is safe.
 
-```bash
-python digitize.py --input ../data/12lead/DII \
-  --output output/output_DII --device cuda:0
+Monitor runs with `python ../watch_experiments.py` for a one-shot status of all
+`experiment_sep14/output` runs, or add `--watch 5` to refresh every 5 seconds.
 
-python digitize.py --input ../data/12lead/DIII \
-  --output output/output_DIII --device cuda:0
-```
+## Segmentation batches
 
-Archive the complete run, including its log and configuration snapshot:
+`--batch-size` overrides `batch_size` in [config.yml](config.yml) (default 2).
+Pages batch only when resized dimensions match (no padding); CPU extraction
+stays per-page, so batching only speeds up segmentation (~0.5 s/page vs
+~3–16 s/page postprocessing). Max working batch for 7016×4964 pages on an
+H100 95 GB card is **3**; `b=4` fails with
+`input tensor must fit into 32-bit index math`, not OOM.
 
-```bash
-tar -czf output_DII.tar.gz -C output output_DII
-```
+`run.log` records seg/post/total time, images/s, and CUDA peak
+allocated/reserved MiB. `run_config.yml` records the effective batch size.
 
-### Segmentation batches
+## Results (Sep 14, H100, b=2)
 
-`--batch-size` overrides `batch_size` in [config.yml](config.yml), currently 2.
-Use `--batch-size 1` as the quality baseline, then sweep upward on the same
-input directory with separate output directories, up to the GPU memory limit:
-
-```bash
-nvidia-smi # confirm free device memory before the sweep
-
-for b in 1 2 4 8 16; do
-python digitize.py --input ../data/12lead/DIII \
-  --output output/benchmark_DIII_b$b --device cuda:0 --batch-size $b
-done
-```
-
-Stop at the first CUDA out-of-memory failure; the last stable `b` is the
-maximum usable batch size. If the gap is large (for example 4 works but 8
-fails), probe one intermediate value once (for example 6).
-
-The wrapper batches segmentation inputs only when their resized dimensions
-match. It does not pad pages, so actual batches may be smaller than the requested
-size. Upstream ECG extraction remains unchanged and processes each page
-individually; increasing the batch size does not parallelize those CPU stages.
-
-`run.log` records segmentation time for each batch, per-page postprocessing time,
-and overall processing time and images per second (excluding model loading).
-CUDA runs also log peak PyTorch allocated and reserved GPU memory in MiB; these
-figures exclude memory used outside PyTorch. `run_config.yml` records the effective
-batch size under `runtime`, including command-line overrides.
-
-Compare total runtime, peak host/GPU memory, and output quality before choosing
-a batch size. Check detected rows, selected leads, coverage, calibration, and
-waveform values against the `b1` baseline. Larger batches need their own benchmark
-and may exceed GPU memory; size both the batch and host-memory allocation from
-measurements rather than assuming that more is faster. Prefer the smallest `b`
-past which images per second flattens or the remaining GPU margin drops below
-about 2 GiB.
+- Full DIII (56 files): 379 s, 0.148 img/s, 23647/34944 MiB.
+- Full DII (87 files): 800 s, 0.109 img/s, same peaks.
+- Smoke IDX=7: GPU ~63 s total, CPU ~104 s total for 4 files.
+- 3/4 smokes agree CPU vs GPU (`max|ΔmV|` ≤ 0.002); `DII_tamir_eI_0007`
+  flips (CPU `III`/13 rows vs GPU `V6`/12 rows) — 12-row detection instability.
 
 ## Layouts
 
-The Python is generic; [config.yml](config.yml) is specific to these filenames
-and page formats. Each profile defines a filename regex, a layout file, and an
-ordered list of preferred leads. The `tamir_adelya` profile uses the 12-row layout
-for Tamir and Adelya; `azamat_aygul` uses
-the three-row layout for Azamat and Aygul. Pass `--profile tamir_adelya` or
-`--profile azamat_aygul` when a filename does not identify its profile.
-
-Metadata supports both DII and DIII filenames. The experiment label (`eI` or
-`eII`) is optional because DIII filenames omit it.
-
-Layout files live under `layouts/`. A profile's layout file may contain several
-candidate layouts, from which OpenECG selects one for each page.
-
-Only single-column layouts containing full-width signal rows are supported and
-tested. This dataset has no multi-column ECG pages. Standard 4x3 and other
-short-segment layouts are outside the current scope.
+[config.yml](config.yml) maps filenames to profiles: `tamir_adelya` (12-row
+Tamir/Adelya) and `azamat_aygul` (3-row Azamat/Aygul). Pass
+`--profile tamir_adelya` or `--profile azamat_aygul` when a filename does not
+identify its profile. Only single-column full-width layouts are supported.
 
 ## Outputs
 
-Each output directory contains:
-
-- `intermediate/<scan>_times_s.csv`: one page-local time array;
-- `intermediate/<scan>_<lead>_mV.csv`: one array for each displayed lead;
-- `ecg_selected_waveforms.csv`: selected waveform from every page;
-- `qc/lead_quality.csv`: coverage, selected lead, layout, and row counts;
-- `qc/<scan>_<lead>.png`: selected-lead plot;
-- `run_config.yml`: configuration, paths, Torch/CUDA versions, and GPU name;
-- `run.log`: processing log.
-
-Selection measures data coverage, not R-peak visibility or physiological
-quality. Configured lead preference is used only between leads with nearly
-equal coverage. R-peak detection and R-R intervals remain a later stage.
+Each output directory contains `intermediate/<scan>_times_s.csv` and
+`intermediate/<scan>_<lead>_mV.csv` per lead, `ecg_selected_waveforms.csv`
+(frozen columns), `qc/lead_quality.csv` plus `qc/<scan>_<lead>.png`,
+`run_config.yml`, and `run.log`. Lead selection measures coverage, not
+R-peak quality; R-peaks and RR intervals are a later stage.
 
 ## Known bugs and limitations
 
-### Amplitude calibration
-
-Open-ECG-Digitizer converts signal height using the average of horizontal and
-vertical pixel densities. Voltage would theoretically use only vertical pixel
-density. This upstream behavior is intentionally left unchanged. The pipeline
-assumes 25 mm/s and the confirmed 10 mm/mV calibration, but mV values may still
-be biased when detected horizontal and vertical grid scaling differ.
-
-### Missing rows can scramble lead labels
-
-A full 12-lead page does not always produce 12 detected signal rows. OpenECG
-assigns the rows it did detect positionally to the configured layout. If one row
-is missing, later signals can shift into the wrong canonical labels—for example,
-the true lead III may be exported as II or I. This has occurred in Tamir's scans.
-
-The warning that the number of detected peaks differs from the number of merged
-lines is therefore important. Row counts and mismatches are also saved in
-`qc/lead_quality.csv` and `run.log`. Visually compare affected 12-lead outputs
-with the source page; this wrapper does not automatically correct label shifts.
+Open-ECG-Digitizer scales voltage by mean H/V pixel density instead of
+vertical only (upstream, unchanged; 25 mm/s and 10 mm/mV assumed). Missing
+rows shift lead labels positionally — check `detected_rows` warnings and
+`qc/*.png`; the wrapper does not relabel.

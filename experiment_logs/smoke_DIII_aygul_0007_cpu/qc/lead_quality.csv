@@ -1,0 +1,4 @@
+scan_file,profile,lead,completeness,longest_complete_fraction,selected,duration_s,layout,layout_cost,expected_rows,detected_rows,detected_lead_labels
+DIII_aygul_0007.jpg,azamat_aygul,II,1.0,1.0,True,11.908894595503806,azamat_3x1,0.8614587706777961,3,3,8
+DIII_aygul_0007.jpg,azamat_aygul,V1,1.0,1.0,False,11.908894595503806,azamat_3x1,0.8614587706777961,3,3,8
+DIII_aygul_0007.jpg,azamat_aygul,V5,1.0,1.0,False,11.908894595503806,azamat_3x1,0.8614587706777961,3,3,8

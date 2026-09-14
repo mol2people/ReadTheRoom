@@ -1,0 +1,115 @@
+2026-09-14 21:46:55,739 INFO files=56 device=cuda:0 batch_size=2 config=/data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster/config.yml
+2026-09-14 21:46:57,482 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.737
+2026-09-14 21:47:11,564 WARNING file=DIII_adelya_0001.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:47:11,744 INFO file=DIII_adelya_0001.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1793 duration_s=10.536 selected=aVL completeness=1.0000 postprocess_elapsed_s=14.3
+2026-09-14 21:47:24,832 WARNING file=DIII_adelya_0002.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:47:24,982 INFO file=DIII_adelya_0002.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1914 duration_s=11.945 selected=II completeness=0.9996 postprocess_elapsed_s=13.2
+2026-09-14 21:47:25,489 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.508
+2026-09-14 21:47:37,704 WARNING file=DIII_adelya_0003.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:47:37,850 INFO file=DIII_adelya_0003.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1663 duration_s=11.937 selected=III completeness=0.9988 postprocess_elapsed_s=12.4
+2026-09-14 21:47:49,667 WARNING file=DIII_adelya_0004.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:47:49,837 INFO file=DIII_adelya_0004.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1825 duration_s=11.939 selected=III completeness=0.9918 postprocess_elapsed_s=12.0
+2026-09-14 21:47:50,359 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.521
+2026-09-14 21:48:01,368 WARNING file=DIII_adelya_0005.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:01,515 INFO file=DIII_adelya_0005.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1249 duration_s=11.939 selected=III completeness=0.9996 postprocess_elapsed_s=11.2
+2026-09-14 21:48:11,992 WARNING file=DIII_adelya_0006.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:12,153 INFO file=DIII_adelya_0006.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1892 duration_s=11.941 selected=III completeness=0.9996 postprocess_elapsed_s=10.6
+2026-09-14 21:48:12,697 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.544
+2026-09-14 21:48:23,463 WARNING file=DIII_adelya_0007.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:23,616 INFO file=DIII_adelya_0007.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.6156 duration_s=11.948 selected=III completeness=0.9996 postprocess_elapsed_s=10.9
+2026-09-14 21:48:32,090 WARNING file=DIII_adelya_0008.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:32,245 INFO file=DIII_adelya_0008.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1636 duration_s=11.945 selected=III completeness=0.9992 postprocess_elapsed_s=8.6
+2026-09-14 21:48:32,778 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.533
+2026-09-14 21:48:44,595 WARNING file=DIII_adelya_0009.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:44,747 INFO file=DIII_adelya_0009.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1375 duration_s=11.941 selected=III completeness=0.9996 postprocess_elapsed_s=12.0
+2026-09-14 21:48:51,364 WARNING file=DIII_adelya_0010.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:48:51,532 INFO file=DIII_adelya_0010.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1535 duration_s=11.947 selected=III completeness=1.0000 postprocess_elapsed_s=6.8
+2026-09-14 21:48:52,043 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.511
+2026-09-14 21:49:04,558 WARNING file=DIII_adelya_0011.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:04,714 INFO file=DIII_adelya_0011.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1263 duration_s=11.945 selected=III completeness=0.9996 postprocess_elapsed_s=12.7
+2026-09-14 21:49:16,284 WARNING file=DIII_adelya_0012.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:16,446 INFO file=DIII_adelya_0012.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1810 duration_s=11.951 selected=III completeness=1.0000 postprocess_elapsed_s=11.7
+2026-09-14 21:49:16,969 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.523
+2026-09-14 21:49:23,172 WARNING file=DIII_adelya_0013.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:23,346 INFO file=DIII_adelya_0013.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1733 duration_s=11.948 selected=III completeness=0.9992 postprocess_elapsed_s=6.4
+2026-09-14 21:49:33,950 WARNING file=DIII_adelya_0014.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:34,104 INFO file=DIII_adelya_0014.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1245 duration_s=11.944 selected=III completeness=0.9996 postprocess_elapsed_s=10.8
+2026-09-14 21:49:34,610 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.505
+2026-09-14 21:49:44,952 WARNING file=DIII_adelya_0015.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:45,125 INFO file=DIII_adelya_0015.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1613 duration_s=11.952 selected=III completeness=0.9984 postprocess_elapsed_s=10.5
+2026-09-14 21:49:55,365 WARNING file=DIII_adelya_0016.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:49:55,538 INFO file=DIII_adelya_0016.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1936 duration_s=11.944 selected=III completeness=0.9988 postprocess_elapsed_s=10.4
+2026-09-14 21:49:56,045 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.506
+2026-09-14 21:50:06,182 WARNING file=DIII_adelya_0017.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:06,343 INFO file=DIII_adelya_0017.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1707 duration_s=11.948 selected=III completeness=0.9996 postprocess_elapsed_s=10.3
+2026-09-14 21:50:16,182 WARNING file=DIII_adelya_0018.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:16,344 INFO file=DIII_adelya_0018.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1987 duration_s=11.932 selected=III completeness=1.0000 postprocess_elapsed_s=10.0
+2026-09-14 21:50:16,858 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.514
+2026-09-14 21:50:27,890 WARNING file=DIII_adelya_0019.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:28,046 INFO file=DIII_adelya_0019.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0982 duration_s=11.944 selected=II completeness=0.9992 postprocess_elapsed_s=11.2
+2026-09-14 21:50:38,653 WARNING file=DIII_adelya_0020.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:38,815 INFO file=DIII_adelya_0020.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2252 duration_s=11.941 selected=III completeness=0.9984 postprocess_elapsed_s=10.8
+2026-09-14 21:50:39,342 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.527
+2026-09-14 21:50:45,383 WARNING file=DIII_adelya_0021.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:45,552 INFO file=DIII_adelya_0021.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1573 duration_s=11.939 selected=III completeness=0.9996 postprocess_elapsed_s=6.2
+2026-09-14 21:50:51,330 WARNING file=DIII_adelya_0022.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:51,495 INFO file=DIII_adelya_0022.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1408 duration_s=11.953 selected=III completeness=0.9992 postprocess_elapsed_s=5.9
+2026-09-14 21:50:51,996 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.501
+2026-09-14 21:50:58,367 WARNING file=DIII_adelya_0023.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:50:58,519 INFO file=DIII_adelya_0023.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1481 duration_s=11.950 selected=III completeness=0.9996 postprocess_elapsed_s=6.5
+2026-09-14 21:51:08,466 WARNING file=DIII_adelya_0024.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:51:08,626 INFO file=DIII_adelya_0024.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.2011 duration_s=11.951 selected=III completeness=0.9996 postprocess_elapsed_s=10.1
+2026-09-14 21:51:09,194 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.568
+2026-09-14 21:51:19,467 WARNING file=DIII_adelya_0025.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:51:19,633 INFO file=DIII_adelya_0025.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0649 duration_s=11.941 selected=III completeness=1.0000 postprocess_elapsed_s=10.4
+2026-09-14 21:51:31,190 WARNING file=DIII_adelya_0026.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:51:31,345 INFO file=DIII_adelya_0026.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.0916 duration_s=11.935 selected=III completeness=0.9992 postprocess_elapsed_s=11.7
+2026-09-14 21:51:31,894 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.548
+2026-09-14 21:51:38,165 WARNING file=DIII_adelya_0027.jpg expected_rows=12 detected_rows=10 lead labels may be shifted
+2026-09-14 21:51:38,326 INFO file=DIII_adelya_0027.jpg profile=tamir_adelya layout=tamir_12x1 cost=0.1277 duration_s=11.942 selected=III completeness=1.0000 postprocess_elapsed_s=6.4
+2026-09-14 21:51:43,146 WARNING file=DIII_adelya_0028.jpg expected_rows=12 detected_rows=11 lead labels may be shifted
+2026-09-14 21:51:43,305 INFO file=DIII_adelya_0028.jpg profile=tamir_adelya layout=tamir_12x1 cost=3.0363 duration_s=1.544 selected=III completeness=1.0000 postprocess_elapsed_s=5.0
+2026-09-14 21:51:43,815 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.510
+2026-09-14 21:51:47,150 INFO file=DIII_aygul_0001.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.9690 duration_s=11.272 selected=II completeness=1.0000 postprocess_elapsed_s=3.3
+2026-09-14 21:51:51,332 INFO file=DIII_aygul_0002.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.7269 duration_s=11.896 selected=II completeness=1.0000 postprocess_elapsed_s=4.2
+2026-09-14 21:51:51,841 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.509
+2026-09-14 21:51:54,954 INFO file=DIII_aygul_0003.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.0048 duration_s=11.886 selected=II completeness=1.0000 postprocess_elapsed_s=3.1
+2026-09-14 21:51:57,834 INFO file=DIII_aygul_0004.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5133 duration_s=11.906 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:51:58,371 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.537
+2026-09-14 21:52:01,251 INFO file=DIII_aygul_0005.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6860 duration_s=11.915 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:04,585 INFO file=DIII_aygul_0006.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6671 duration_s=11.908 selected=II completeness=1.0000 postprocess_elapsed_s=3.3
+2026-09-14 21:52:05,085 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.499
+2026-09-14 21:52:08,004 INFO file=DIII_aygul_0007.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8614 duration_s=11.909 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:10,901 INFO file=DIII_aygul_0008.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5341 duration_s=11.908 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:11,404 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.502
+2026-09-14 21:52:14,361 INFO file=DIII_aygul_0009.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8141 duration_s=11.917 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:52:17,285 INFO file=DIII_aygul_0010.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.7519 duration_s=11.875 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:17,791 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.506
+2026-09-14 21:52:20,762 INFO file=DIII_aygul_0011.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.0082 duration_s=11.909 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:52:23,724 INFO file=DIII_aygul_0012.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6670 duration_s=11.880 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:52:24,226 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.502
+2026-09-14 21:52:27,146 INFO file=DIII_aygul_0013.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5255 duration_s=11.904 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:30,090 INFO file=DIII_aygul_0014.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8388 duration_s=11.881 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:30,712 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.622
+2026-09-14 21:52:33,616 INFO file=DIII_aygul_0015.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6784 duration_s=11.907 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:36,459 INFO file=DIII_aygul_0016.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8374 duration_s=11.893 selected=II completeness=1.0000 postprocess_elapsed_s=2.8
+2026-09-14 21:52:36,959 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.499
+2026-09-14 21:52:39,821 INFO file=DIII_aygul_0017.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.4518 duration_s=11.891 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:42,706 INFO file=DIII_aygul_0018.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5003 duration_s=11.881 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:43,207 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.500
+2026-09-14 21:52:46,148 INFO file=DIII_aygul_0019.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8339 duration_s=11.927 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:49,037 INFO file=DIII_aygul_0020.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6855 duration_s=11.904 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:49,539 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.502
+2026-09-14 21:52:52,422 INFO file=DIII_aygul_0021.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8401 duration_s=11.903 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:55,301 INFO file=DIII_aygul_0022.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8479 duration_s=11.904 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:52:55,798 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.498
+2026-09-14 21:52:58,743 INFO file=DIII_aygul_0023.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6679 duration_s=11.932 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:01,631 INFO file=DIII_aygul_0024.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6957 duration_s=11.920 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:02,132 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.500
+2026-09-14 21:53:05,070 INFO file=DIII_aygul_0025.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.8504 duration_s=11.914 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:08,021 INFO file=DIII_aygul_0026.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.6732 duration_s=11.935 selected=II completeness=1.0000 postprocess_elapsed_s=3.0
+2026-09-14 21:53:08,524 INFO segmentation pages=2 shape_groups=1 elapsed_s=0.503
+2026-09-14 21:53:11,387 INFO file=DIII_aygul_0027.jpg profile=azamat_aygul layout=azamat_3x1 cost=0.5390 duration_s=11.931 selected=II completeness=1.0000 postprocess_elapsed_s=2.9
+2026-09-14 21:53:14,658 INFO file=DIII_aygul_0028.jpg profile=azamat_aygul layout=azamat_3x1 cost=1.2372 duration_s=1.553 selected=II completeness=1.0000 postprocess_elapsed_s=3.3
+2026-09-14 21:53:15,419 INFO complete rows=280000 output=/data/horse/ws/buza314h-ecg/experiment_sep14/output/DIII_b2_full_gpu elapsed_s=378.674 images_per_s=0.1479
+2026-09-14 21:53:15,419 INFO peak_gpu_allocated_mib=23647.3 peak_gpu_reserved_mib=34944.0
