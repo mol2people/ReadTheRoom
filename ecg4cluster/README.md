@@ -23,6 +23,20 @@ python3 -m venv --system-site-packages venv
 srun --partition=capella --nodes=1 --gres=gpu:1 --time=03:00:00 --pty bash
 ```
 
+Allocation actually used on Sep 14 (job 4213240, node c29: one H100, 10 CPUs,
+100 GB, 6 h): allocate first, then open a shell on the assigned node with
+`srun` from inside the allocation:
+
+```bash
+salloc --account=p_epoch_data --partition=capella --job-name=ecg --nodes=1 \
+  --ntasks=1 --cpus-per-task=10 --gres=gpu:1 --mem=100G --time=06:00:00
+srun --pty bash
+```
+
+Do all of this inside `tmux` (`tmux new -s ecg`; detach with `Ctrl-b d`,
+reattach with `tmux attach -t ecg`): if SSH drops, the allocation shell — and
+the run with it — dies otherwise.
+
 On the GPU node:
 
 ```bash
