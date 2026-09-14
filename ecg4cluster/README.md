@@ -1,6 +1,6 @@
 # ecg4cluster
 
-A small Capella workflow around
+A small ZIH GPU workflow around
 [Open-ECG-Digitizer](https://github.com/Ahus-AIM/Open-ECG-Digitizer) v1.9.3.
 
 It digitizes full-width ECG traces, exports every displayed lead, selects the
@@ -56,6 +56,33 @@ python -c 'import torch; print(torch.__version__); print(torch.version.cuda); pr
 These commands assume this repository is at `.../ecg4cluster` and the extracted
 images are under `.../data`. Adjust those two paths to match the archive.
 
+## Alpha allocation
+
+For a first benchmark on Alpha, request one GPU and six CPU cores, then start
+a shell on the allocated compute node:
+
+```bash
+salloc --account=p_epoch_data --partition=alpha --job-name=oc-dev --nodes=1 --ntasks=1 \
+  --cpus-per-task=6 --threads-per-core=1 --gres=gpu:1 --mem=32G \
+  --time=01:00:00
+srun --ntasks=1 --cpus-per-task=6 --cpu-bind=cores --pty bash
+```
+
+Activate the environment and run the workflow from that compute-node shell.
+Set the numerical libraries' thread limits before starting Python:
+
+```bash
+export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export MKL_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export OPENBLAS_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+```
+
+The `alpha` partition permits up to six CPUs and 123750 MB of host memory per
+requested GPU; see [ZIH's Slurm resource limits](https://doc.zih.tu-dresden.de/jobs_and_resources/slurm_limits/).
+Alpha uses [A100 GPUs with 40 GiB of device memory](https://doc.zih.tu-dresden.de/jobs_and_resources/alpha_centauri/).
+The requested `32G` is a starting estimate for host RAM, separate from GPU
+memory. Adjust it after measuring peak memory on representative scans.
+
 ## Run
 
 Test one page from each supplied layout before processing the full directory:
@@ -68,11 +95,14 @@ python digitize.py --input ../data/12lead/DII --output output/test_azamat \
   --file DII_azamat_eI_0011.jpg --device cuda:0
 ```
 
-Then run the complete directory:
+Then run each complete directory:
 
 ```bash
 python digitize.py --input ../data/12lead/DII \
   --output output/output_DII --device cuda:0
+
+python digitize.py --input ../data/12lead/DIII \
+  --output output/output_DIII --device cuda:0
 ```
 
 Archive the complete run, including its log and configuration snapshot:
@@ -81,12 +111,48 @@ Archive the complete run, including its log and configuration snapshot:
 tar -czf output_DII.tar.gz -C output output_DII
 ```
 
+### Segmentation batches
+
+`--batch-size` overrides `batch_size` in [config.yml](config.yml), currently 2. Start with
+`--batch-size 1` as the baseline, then benchmark `--batch-size 2` on the same
+input directory, using separate output directories:
+
+```bash
+python digitize.py --input ../data/12lead/DIII \
+  --output output/benchmark_DIII_b1 --device cuda:0 --batch-size 1
+
+python digitize.py --input ../data/12lead/DIII \
+  --output output/benchmark_DIII_b2 --device cuda:0 --batch-size 2
+```
+
+The wrapper batches segmentation inputs only when their resized dimensions
+match. It does not pad pages, so actual batches may be smaller than the requested
+size. Upstream ECG extraction remains unchanged and processes each page
+individually; increasing the batch size does not parallelize those CPU stages.
+
+`run.log` records segmentation time for each batch, per-page postprocessing time,
+and overall processing time and images per second (excluding model loading).
+CUDA runs also log peak PyTorch allocated and reserved GPU memory in MiB; these
+figures exclude memory used outside PyTorch. `run_config.yml` records the effective
+batch size under `runtime`, including command-line overrides.
+
+Compare total runtime, peak host/GPU memory, and output quality before choosing
+a batch size. Check detected rows, selected leads, coverage, calibration, and
+waveform values against the baseline. Larger batches need their own benchmark
+and may exceed GPU memory; size both the batch and host-memory allocation from
+measurements rather than assuming that more is faster.
+
 ## Layouts
 
 The Python is generic; [config.yml](config.yml) is specific to these filenames
 and page formats. Each profile defines a filename regex, a layout file, and an
-ordered list of preferred leads. Pass `--profile tamir` or `--profile azamat`
-when a filename does not identify its profile.
+ordered list of preferred leads. The `tamir_adelya` profile uses the 12-row layout
+for Tamir and Adelya; `azamat_aygul` uses
+the three-row layout for Azamat and Aygul. Pass `--profile tamir_adelya` or
+`--profile azamat_aygul` when a filename does not identify its profile.
+
+Metadata supports both DII and DIII filenames. The experiment label (`eI` or
+`eII`) is optional because DIII filenames omit it.
 
 Layout files live under `layouts/`. A profile's layout file may contain several
 candidate layouts, from which OpenECG selects one for each page.

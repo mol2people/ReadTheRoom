@@ -29,6 +29,7 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--config", type=Path, default=PROJECT_DIR / "config.yml")
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--batch-size", type=int, help="Maximum segmentation batch size; defaults to config.yml.")
     parser.add_argument("--file", help="Process only this exact filename.")
     parser.add_argument("--profile", help="Use one named profile instead of matching filenames.")
     return parser.parse_args()
@@ -108,10 +109,30 @@ def save_plot(path: Path, time_s: np.ndarray, values: np.ndarray, title: str) ->
     plt.close(fig)
 
 
+def segmented_pages(runner: OpenECGRunner, paths: list[Path], batch_size: int, logger: logging.Logger):
+    for start in range(0, len(paths), batch_size):
+        batch_paths = paths[start : start + batch_size]
+        started = time.perf_counter()
+        probabilities = runner.segment_batch(batch_paths)
+        if runner.device.startswith("cuda"):
+            torch.cuda.synchronize(runner.device)
+        shapes = {tuple(probability.shape[2:]) for probability in probabilities}
+        logger.info(
+            "segmentation pages=%d shape_groups=%d elapsed_s=%.3f",
+            len(batch_paths), len(shapes), time.perf_counter() - started,
+        )
+        yield from zip(batch_paths, probabilities)
+        # Release the complete previous batch before allocating the next one.
+        del probabilities
+
+
 def main() -> None:
     args = arguments()
     config_path = args.config.resolve()
     config = yaml.safe_load(config_path.read_text())
+    batch_size = args.batch_size if args.batch_size is not None else config.get("batch_size", 1)
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch_size must be a positive integer")
     config_dir = config_path.parent
     input_dir = args.input.resolve()
     output_dir = args.output.resolve()
@@ -131,6 +152,8 @@ def main() -> None:
         path for path in input_dir.iterdir() if path.suffix.lower() in extensions
     ]
     paths.sort(key=lambda path: sort_key(path, config))
+    if not paths:
+        raise ValueError(f"No input images found in {input_dir}")
 
     first_profile, _ = profile_for(paths[0], profiles, args.profile)
     run_config = dict(config)
@@ -144,9 +167,10 @@ def main() -> None:
         "open_ecg_revision": OPEN_ECG_REVISION,
         "file": args.file,
         "profile_override": args.profile,
+        "batch_size": batch_size,
     }
     (output_dir / "run_config.yml").write_text(yaml.safe_dump(run_config, sort_keys=False))
-    logger.info("files=%d device=%s config=%s", len(paths), args.device, config_path)
+    logger.info("files=%d device=%s batch_size=%d config=%s", len(paths), args.device, batch_size, config_path)
 
     runner = OpenECGRunner(
         repository=OPEN_ECG_DIR,
@@ -158,13 +182,17 @@ def main() -> None:
 
     combined_parts = []
     quality_rows = []
-    for image_path in paths:
-        started = time.time()
+    if args.device.startswith("cuda"):
+        torch.cuda.reset_peak_memory_stats(args.device)
+    processing_started = time.perf_counter()
+    for image_path, probabilities in segmented_pages(runner, paths, batch_size, logger):
+        started = time.perf_counter()
         np.random.seed(config["seed"])
         torch.manual_seed(config["seed"])
 
         profile_name, profile = profile_for(image_path, profiles, args.profile)
-        result = runner.digitize(image_path, layouts[profile_name])
+        result = runner.digitize_probabilities(probabilities, layouts[profile_name])
+        del probabilities
         layout_name = result["layout_name"]
         layout = layouts[profile_name][layout_name]
         leads = layout_leads(layout)
@@ -237,7 +265,7 @@ def main() -> None:
             f"{base} — {selected}",
         )
         logger.info(
-            "file=%s profile=%s layout=%s cost=%.4f duration_s=%.3f selected=%s completeness=%.4f elapsed_s=%.1f",
+            "file=%s profile=%s layout=%s cost=%.4f duration_s=%.3f selected=%s completeness=%.4f postprocess_elapsed_s=%.1f",
             image_path.name,
             profile_name,
             layout_name,
@@ -245,13 +273,23 @@ def main() -> None:
             time_s[-1],
             selected,
             stats[selected][0],
-            time.time() - started,
+            time.perf_counter() - started,
         )
 
     combined = pd.concat(combined_parts, ignore_index=True)
     combined.to_csv(output_dir / "ecg_selected_waveforms.csv", index=False)
     pd.DataFrame(quality_rows).to_csv(qc_dir / "lead_quality.csv", index=False)
-    logger.info("complete rows=%d output=%s", len(combined), output_dir)
+    elapsed = time.perf_counter() - processing_started
+    logger.info(
+        "complete rows=%d output=%s elapsed_s=%.3f images_per_s=%.4f",
+        len(combined), output_dir, elapsed, len(paths) / elapsed,
+    )
+    if args.device.startswith("cuda"):
+        logger.info(
+            "peak_gpu_allocated_mib=%.1f peak_gpu_reserved_mib=%.1f",
+            torch.cuda.max_memory_allocated(args.device) / 1024**2,
+            torch.cuda.max_memory_reserved(args.device) / 1024**2,
+        )
 
 
 if __name__ == "__main__":

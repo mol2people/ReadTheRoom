@@ -110,14 +110,36 @@ class OpenECGRunner:
         slices = (slice(None), slice(None), slice(first, last + 1), slice(None))
         return tuple(tensor[slices] for tensor in tensors)
 
-    @torch.no_grad()
-    def digitize(self, image_path: Path, layouts: dict) -> dict:
-        self.identifier.layouts = layouts
+    def _read_image(self, image_path: Path) -> torch.Tensor:
         image = decode_image(str(image_path), mode="RGB").unsqueeze(0)
         image = (image - image.min()) / (image.max() - image.min())
-        image = self._resample(image.to(self.device))
+        return self._resample(image.to(self.device))
 
-        probabilities = torch.softmax(self.segmentation_model(image), dim=1)
+    @torch.no_grad()
+    def segment_batch(self, image_paths: list[Path]) -> list[torch.Tensor]:
+        """Batch equal-sized pages without changing their geometry or input order."""
+        images = [self._read_image(path) for path in image_paths]
+        groups = {}
+        for index, image in enumerate(images):
+            groups.setdefault(tuple(image.shape[2:]), []).append(index)
+
+        probabilities_by_index = {}
+        for indices in groups.values():
+            batch = images[indices[0]] if len(indices) == 1 else torch.cat(
+                [images[index] for index in indices], dim=0
+            )
+            probabilities = torch.softmax(self.segmentation_model(batch), dim=1)
+            for offset, index in enumerate(indices):
+                probabilities_by_index[index] = probabilities[offset : offset + 1]
+        return [probabilities_by_index[index] for index in range(len(images))]
+
+    def digitize(self, image_path: Path, layouts: dict) -> dict:
+        return self.digitize_probabilities(self.segment_batch([image_path])[0], layouts)
+
+    @torch.no_grad()
+    def digitize_probabilities(self, probabilities: torch.Tensor, layouts: dict) -> dict:
+        """Run the existing extraction steps on one segmented page."""
+        self.identifier.layouts = layouts
         grid = self._sparse_probability(probabilities[:, [0]])
         text = self._sparse_probability(probabilities[:, [1]])
         signal = self._sparse_probability(probabilities[:, [2]])
