@@ -67,22 +67,30 @@ uses the GitHub username plus the token as password.
 
 ## Run
 
-Smoke-test one page per layout (CPU and GPU), then the full directories.
-Batch size is fixed at 2 (`<ws>` = workspace root):
+## Run
+
+Batch size is fixed at 2 (`<ws>` = workspace root). Use absolute
+`--input`/`--output` paths.
+
+### Smoke test
+
+One page per layout, on CPU and GPU (a single `--file` run always uses an
+actual batch of 1, so CPU smoke with `--batch-size 2` is safe):
 
 ```bash
 python digitize.py --input <ws>/data/12lead/DIII --output <ws>/experiment_sep14/output/smoke \
   --file DIII_adelya_0007.jpg --device cuda:0 --batch-size 2
+```
 
+### Full run
+
+```bash
 python digitize.py --input <ws>/data/12lead/DII --output <ws>/experiment_sep14/output/DII_b2_full_gpu \
   --device cuda:0 --batch-size 2
 
 python digitize.py --input <ws>/data/12lead/DIII --output <ws>/experiment_sep14/output/DIII_b2_full_gpu \
   --device cuda:0 --batch-size 2
 ```
-
-Use absolute `--input`/`--output` paths. A single `--file` run always uses an
-actual batch of 1, so CPU smoke with `--batch-size 2` is safe.
 
 Monitor runs with `python ../watch_experiments.py` for a one-shot status of all
 `experiment_sep14/output` runs, or add `--watch 5` to refresh every 5 seconds.
