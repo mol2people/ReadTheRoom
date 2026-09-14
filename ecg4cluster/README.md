@@ -12,7 +12,7 @@ sample of every page.
 
 ## Setup
 
-On Capella, unpack the data, create the venv, and request a GPU:
+On Capella, unpack the data and create the venv:
 
 ```bash
 cd /data/horse/ws/buza314h-ecg
@@ -20,12 +20,10 @@ unzip Archive.zip -d data
 
 module load release/25.06 GCCcore/13.3.0 Python/3.12.3 CUDA/13.0.0
 python3 -m venv --system-site-packages venv
-srun --partition=capella --nodes=1 --gres=gpu:1 --time=03:00:00 --pty bash
 ```
 
-Allocation actually used on Sep 14 (job 4213240, node c29: one H100, 10 CPUs,
-100 GB, 6 h): allocate first, then open a shell on the assigned node with
-`srun` from inside the allocation:
+Allocate (job 4213240, node c29: one H100, 10 CPUs, 6 h), then open a shell
+on the node with `srun` from inside the allocation:
 
 ```bash
 salloc --account=p_epoch_data --partition=capella --job-name=ecg --nodes=1 \
@@ -33,11 +31,14 @@ salloc --account=p_epoch_data --partition=capella --job-name=ecg --nodes=1 \
 srun --pty bash
 ```
 
+100 GB was overkill: at `b=2` the GPU side peaks at ~35 GB reserved and host
+RAM never constrained anything — 32–64 GB is plenty.
+
 Do all of this inside `tmux` (`tmux new -s ecg`; detach with `Ctrl-b d`,
 reattach with `tmux attach -t ecg`): if SSH drops, the allocation shell — and
 the run with it — dies otherwise.
 
-On the GPU node:
+On the compute node:
 
 ```bash
 source /data/horse/ws/buza314h-ecg/venv/bin/activate
@@ -59,7 +60,7 @@ uses the GitHub username plus the token as password.
 ## Run
 
 Smoke-test one page per layout (CPU and GPU), then the full directories.
-Batch size is fixed at 2:
+Batch size is fixed at 2 (`<ws>` = workspace root):
 
 ```bash
 python digitize.py --input <ws>/data/12lead/DIII --output <ws>/experiment_sep14/output/smoke \
