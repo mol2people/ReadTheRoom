@@ -81,12 +81,10 @@ Monitor runs with `python ../watch_experiments.py` for a one-shot status of all
 
 ## Segmentation batches
 
-`--batch-size` overrides `batch_size` in [config.yml](config.yml) (default 2).
-Pages batch only when resized dimensions match (no padding); CPU extraction
-stays per-page, so batching only speeds up segmentation (~0.5 s/page vs
-~3–16 s/page postprocessing). Max working batch for 7016×4964 pages on an
-H100 95 GB card is **3**; `b=4` fails with
-`input tensor must fit into 32-bit index math`, not OOM.
+`--batch-size` overrides `batch_size` in [config.yml](config.yml) (default 2;
+the flag wins, so no config edit needed). Pages batch only when resized
+dimensions match (no padding); CPU extraction stays per-page, so batching
+only speeds up segmentation (~0.5 s/page vs ~3–16 s/page postprocessing).
 
 `run.log` records seg/post/total time, images/s, and CUDA peak
 allocated/reserved MiB. `run_config.yml` records the effective batch size.
@@ -120,3 +118,12 @@ Open-ECG-Digitizer scales voltage by mean H/V pixel density instead of
 vertical only (upstream, unchanged; 25 mm/s and 10 mm/mV assumed). Missing
 rows shift lead labels positionally — check `detected_rows` warnings and
 `qc/*.png`; the wrapper does not relabel.
+
+### Batch size ceiling (32-bit indexing)
+
+Batching stacks full pages into one tensor. With 7016×4964 pages, `b=4`
+exceeds 32-bit index math in the segmentation conv
+(`RuntimeError: input tensor must fit into 32-bit index math`) — a hard
+tensor-size limit, not GPU OOM, so more device memory does not help. Max
+working batch on tested data is **3** (measured reserved: ~34 GB at `b=2`,
+~49 GB at `b=3` on an H100 95 GB card).
