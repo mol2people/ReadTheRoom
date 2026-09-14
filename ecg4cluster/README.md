@@ -12,24 +12,31 @@ sample of every page.
 
 ## Setup
 
-First time only — allocate the workspace and copy the archive from your machine:
+### First time
 
 ```bash
 ws_allocate --filesystem horse ecg 100
 ws_list
 scp ~/Documents/ReadTheRoom_PhysiologicalSynchrony/Archive.zip \
   scpTUD:/data/horse/ws/buza314h-ecg/
-```
 
-On Capella, unpack the data and create the venv:
-
-```bash
 cd /data/horse/ws/buza314h-ecg
 unzip Archive.zip -d data
 
 module load release/25.06 GCCcore/13.3.0 Python/3.12.3 CUDA/13.0.0
 python3 -m venv --system-site-packages venv
+source venv/bin/activate
+cd experiment_sep14/ReadTheRoom/ecg4cluster
+bash fetch_open_ecg.sh
+python -m pip install -r requirements.txt
+python -c 'import torch; print(torch.cuda.get_device_name(0))'
 ```
+
+### Every session
+
+Work inside `tmux` (`tmux new -s ecg`; detach `Ctrl-b d`, reattach
+`tmux attach -t ecg`): if SSH drops, the allocation shell — and the run
+with it — dies otherwise.
 
 Allocate (job 4213240, node c29: one H100, 10 CPUs, 6 h), then open a shell
 on the node with `srun` from inside the allocation:
@@ -43,18 +50,10 @@ srun --pty bash
 100 GB was overkill: at `b=2` the GPU side peaks at ~35 GB reserved and host
 RAM never constrained anything — 32–64 GB is plenty.
 
-Do all of this inside `tmux` (`tmux new -s ecg`; detach with `Ctrl-b d`,
-reattach with `tmux attach -t ecg`): if SSH drops, the allocation shell — and
-the run with it — dies otherwise.
-
-On the compute node:
-
 ```bash
+module load release/25.06 GCCcore/13.3.0 Python/3.12.3 CUDA/13.0.0
 source /data/horse/ws/buza314h-ecg/venv/bin/activate
 cd /data/horse/ws/buza314h-ecg/experiment_sep14/ReadTheRoom/ecg4cluster
-bash fetch_open_ecg.sh
-python -m pip install -r requirements.txt
-python -c 'import torch; print(torch.cuda.get_device_name(0))'
 ```
 
 On Alpha instead: `salloc --account=p_epoch_data --partition=alpha
